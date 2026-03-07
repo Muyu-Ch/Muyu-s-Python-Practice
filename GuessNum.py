@@ -1,8 +1,12 @@
 import random
-a=random.randint(1,100)
+
+MIN=1
+MAX=100
+
+a=random.randint(MIN,MAX)
 b=-1
-min_num=1
-max_num=100
+min_num=MIN
+max_num=MAX
 while b!=a:
     try:
         b=int(input("give me a number: "))
