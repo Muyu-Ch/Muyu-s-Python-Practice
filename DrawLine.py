@@ -5,13 +5,13 @@ def show(points):#绘画所有的点
         x=max(x,point[0])
         y=max(y,point[1])
     width = 3
-    for i in range(x):
-        for j in range(y):  # 遍历所有坐标检测（x，y）是否在集合内
+    for i in range(x+1):
+        for j in range(y+1):  # 遍历所有坐标检测（x，y）是否在集合内
             if i == 0:
                 print(f'{j:>{width}}', end="")
             elif j == 0:
                 print(f'{i:>{width}}', end="")
-            elif [i, j] in point:
+            elif [i,j] in points:
                 print(f'{"*":>{width}}', end='')
             else:
                 print(f'{" ":>{width}}', end='')
@@ -53,15 +53,12 @@ n=int(input("the number of lines: "))
 ls=[]
 
 for i in range(n):
-    ls.append([
-        [int(input(f"X of the first point of num{i+1} line: ")),int(input(f"Y of the first point of num{i+1} line: "))],
-        [int(input(f"X of the second point of num{i+1} line: ")),int(input(f"Y of the second point of num{i+1} line: "))]
-    ])
+    x1,y1=map(int,input(f"the first point of num{i+1} line: ").split())
+    x2,y2=map(int,input(f"the second point of num{i+1} line: ").split())
+    ls.append([[x1,y1],[x2,y2]])
 
 ps=lines(ls)
 show(ps)
-
-
 
 
 
